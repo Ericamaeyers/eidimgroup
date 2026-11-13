@@ -91,6 +91,49 @@ body{font-family:'Noto Sans',Arial,sans-serif}h1,h2,h3,.brand,.info-grid b,.deta
 @media(max-width:900px){.hero{height:auto;min-height:700px}.hero-inner{padding:90px 0 120px}}
 @media(max-width:640px){.hero{height:auto;min-height:640px}.hero-photo{background-position:52% center}.hero:before{background:linear-gradient(90deg,rgba(8,18,30,.76),rgba(8,18,30,.35)),linear-gradient(0deg,rgba(8,18,30,.3),transparent 45%)}.hero h1{font-size:clamp(2.35rem,8.9vw,3.8rem);letter-spacing:-.05em}.hero-inner{padding:76px 0 125px}.hero .actions{gap:10px}.hero .btn{padding:13px 15px;font-size:11px}.hero .scroll-cue{left:20px;bottom:25px}}
 
+
+/* v4: compact editorial rhythm + scroll-linked immersive story transition */
+:root{--blue:#003a7f;--ink:#121820;--paper:#f7f8f9;--ease:cubic-bezier(.22,1,.36,1)}
+html{scroll-padding-top:20px}
+body,h1,h2,h3,button,input{font-family:'Noto Sans',Arial,sans-serif}
+.wrap{width:min(1160px,calc(100% - 64px))}
+.hero{min-height:675px;min-height:min(760px,94svh)}
+.hero-inner{padding:80px 0 105px}
+.hero h1{font-size:clamp(2.9rem,6.1vw,6.05rem);line-height:1.08;max-width:1060px;margin:20px 0 16px}
+.hero p{margin-bottom:23px;max-width:600px}
+.hero-photo{filter:brightness(1.13) saturate(1.02)}
+.hero:before{background:linear-gradient(90deg,rgba(6,15,26,.68) 0%,rgba(8,18,30,.4) 47%,rgba(8,18,30,.06) 100%),linear-gradient(0deg,rgba(6,12,20,.22),transparent 38%)}
+.hero .actions{margin-bottom:10px}.scroll-cue{bottom:18px}
+.intro{padding:70px 0 68px}.intro-grid{gap:55px}
+.intro h2,.section-title{font-size:clamp(2.1rem,4.1vw,4.15rem);margin:12px 0 16px}
+.intro p{margin-bottom:0}.info-grid{gap:20px 16px;padding-left:25px}
+.impact-ribbon{padding:24px 0 31px}.impact-ribbon .eyebrow{margin-bottom:12px}
+.impact-item{padding-top:16px}.impact-item strong{font-family:'Noto Sans',sans-serif}
+.chapter{padding:72px 0}.split,.split.reverse{gap:6%}
+.chapter .copy h2{font-size:clamp(2.3rem,4.4vw,4.7rem);margin:12px 0 16px}
+.chapter .copy p{margin-bottom:12px}.visual{min-height:330px}
+/* Story acts as an overlapping scene, not another tall dark block. */
+.story-strip{--enter:0;min-height:500px;margin-top:-45px;z-index:3;isolation:isolate;border-radius:30px 30px 0 0;box-shadow:0 -18px 36px rgba(10,22,33,.12);background:#1b2a3a;overflow:hidden}
+.story-strip-photo{inset:-6%;filter:brightness(.93) saturate(.95);transform:scale(calc(1.15 - var(--enter)*.12)) translateY(calc((1 - var(--enter))*26px));will-change:transform}
+.story-strip:before{background:linear-gradient(90deg,rgba(4,12,22,calc(.77 - var(--enter)*.07)) 0%,rgba(10,24,38,.48) 56%,rgba(12,25,38,.18) 100%);opacity:calc(.88 + var(--enter)*.12);transition:opacity .2s;z-index:1}
+.story-strip:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(8,19,33,.32),transparent 31%)}
+.story-strip-inner{padding:73px 0 66px;transform:translateY(calc((1 - var(--enter))*34px));opacity:calc(.72 + var(--enter)*.28);will-change:transform,opacity}
+.story-strip h2{font-size:clamp(2.8rem,6.2vw,6.2rem);line-height:1.09;margin:13px 0 16px;max-width:1000px}
+.story-strip h2 em{color:#dcefff}.story-strip p{font-size:1.03rem;max-width:590px;margin-bottom:12px}.story-strip-link{margin-top:7px}
+.story-strip+.chapter{position:relative;z-index:4;margin-top:-15px;padding-top:80px;border-radius:20px 20px 0 0}
+.technology{padding:75px 0 82px}.heading-row{margin-bottom:24px}
+.tech-shell{min-height:440px}.tech-content{padding:33px 35px}.tech-photo{min-height:265px}
+.gallery{padding:72px 0 75px}.gallery-grid{grid-template-rows:180px 180px;margin-top:25px}
+.outcome{padding:78px 0}.outcome-grid{gap:52px}.outcome h2{font-size:clamp(2.4rem,4.8vw,5rem);margin:12px 0 16px}.outcome-visual{height:370px}
+.dossier{padding-top:74px!important;padding-bottom:78px!important}
+.dossier-head{margin-bottom:25px!important}.detail-list{margin-top:14px!important}
+.cta{padding:68px 0}.cta h2{font-size:clamp(2rem,3.4vw,3.5rem)}
+.footer{padding:26px 0}
+.reveal{transform:translateY(18px);transition-duration:.65s}
+@media(max-width:900px){.hero{min-height:660px}.hero-inner{padding:75px 0 100px}.intro{padding:58px 0}.story-strip{min-height:435px;margin-top:-28px}.story-strip-inner{padding:65px 0}.technology,.gallery,.outcome{padding-top:60px;padding-bottom:65px}.tech-content{padding:28px}.gallery-grid{grid-template-rows:170px 170px}}
+@media(max-width:640px){.wrap{width:calc(100% - 38px)}.hero{min-height:620px}.hero-inner{padding:74px 0 88px}.hero h1{font-size:clamp(2.35rem,10.2vw,3.9rem);line-height:1.11}.hero p{font-size:.95rem}.hero-meta{font-size:9px;letter-spacing:.08em}.scroll-cue{bottom:12px}.intro{padding:45px 0 48px}.intro-grid{gap:28px}.info-grid{padding-left:18px}.chapter{padding:55px 0}.chapter .visual{min-height:250px}.story-strip{margin-top:-24px;min-height:405px;border-radius:19px 19px 0 0}.story-strip-inner{padding:58px 0 52px}.story-strip h2{font-size:clamp(2.3rem,10vw,4rem)}.story-strip:before{background:linear-gradient(90deg,rgba(4,12,22,.74),rgba(9,22,37,.32))}.story-strip+.chapter{padding-top:60px}.heading-row{margin-bottom:19px}.technology,.gallery,.outcome{padding:54px 0}.tech-shell{min-height:0}.tech-tabs{padding:12px}.tech-content{padding:23px}.gallery-grid{margin-top:18px}.outcome-grid{gap:24px}.outcome-visual{height:280px}.dossier{padding-top:52px!important;padding-bottom:52px!important}.cta{padding:53px 0}.footer{padding:22px 0}}
+@media(prefers-reduced-motion:reduce){.story-strip-photo,.story-strip-inner{transform:none!important;opacity:1!important;will-change:auto}.reveal{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -102,7 +145,6 @@ body{font-family:'Noto Sans',Arial,sans-serif}h1,h2,h3,.brand,.info-grid b,.deta
 <section class="impact-ribbon" aria-label="Project solutions"><div class="wrap"><p class="eyebrow">ONE PROJECT. MULTIPLE CONNECTED SYSTEMS.</p><div class="impact-items"><div class="impact-item reveal"><strong>01</strong><span>Audio capture &amp; processing</span></div><div class="impact-item reveal"><strong>02</strong><span>Hybrid video conferencing</span></div><div class="impact-item reveal"><strong>03</strong><span>AV distribution &amp; displays</span></div></div></div></section>
 <section class="chapter" id="story"><div class="wrap split"><div class="copy reveal"><div class="number">01 / THE CHALLENGE</div><h2>A complex build.<br>A clear goal.</h2><p>Deliver a dependable AV environment while construction, contractors and evolving room requirements moved in parallel.</p><p class="small">From executive conference rooms to collaboration spaces, every system needed to work together without adding complexity for staff.</p></div><div class="visual reveal"><img src="assets/boardroom.jpg" alt="Conference room from the supplied OCSAN project screenshot" loading="lazy"><span class="imglabel">01 / CONNECTED SPACES</span></div></div></section>
 <section class="story-strip" aria-label="Project storytelling"><div class="story-strip-photo" aria-hidden="true"></div><div class="wrap story-strip-inner"><div class="eyebrow accent reveal">BEYOND A SIMPLE INSTALLATION</div><h2 class="reveal">Complex systems.<br><em>Effortless experiences.</em></h2><p class="reveal">From construction coordination to room-by-room AV integration, every connection matters. Explore how EIDIM brought the pieces together.</p><a class="story-strip-link reveal" href="#technology">DISCOVER THE INTEGRATION <span>↘</span></a></div></section>
-<section class="quote-band"><div class="wrap reveal"><div class="eyebrow accent">THE EIDIM APPROACH</div><h2>One connected ecosystem.<br>Built around <span class="accent">people.</span></h2><p>A cohesive combination of audio, video, displays and room controls designed to help OCSAN teams communicate and collaborate with confidence.</p></div></section>
 <section class="chapter" style="background:#fff"><div class="wrap split reverse"><div class="copy reveal"><div class="number">02 / THE SOLUTION</div><h2>Technology that stays out of the way.</h2><p>Ceiling and linear array microphones, audio processing, conferencing systems and networked video distribution work behind the scenes to make meetings simpler.</p><p class="small">The focus is not technology for its own sake. It's a more seamless everyday experience.</p></div><div class="visual reveal"><img src="assets/conference.jpg" alt="Modern meeting room featured in the supplied project screenshot" loading="lazy"><span class="imglabel">02 / SEAMLESS COLLABORATION</span></div></div></section>
 <section class="technology" id="technology"><div class="wrap"><div class="heading-row reveal"><div><div class="number">03 / THE TECHNOLOGY</div><h2 class="section-title">Explore what's<br>behind the experience.</h2></div><p class="small" style="max-width:340px">Hover on desktop or tap on mobile to see how every system contributes to the project.</p></div><div class="tech-shell reveal"><div class="tech-tabs" role="tablist" aria-label="Technology categories"><button class="tech-tab active" data-tech="0" role="tab" aria-selected="true">Audio Capture <span>↗</span></button><button class="tech-tab" data-tech="1" role="tab" aria-selected="false">Audio Processing <span>↗</span></button><button class="tech-tab" data-tech="2" role="tab" aria-selected="false">Video Conferencing <span>↗</span></button><button class="tech-tab" data-tech="3" role="tab" aria-selected="false">AV Distribution <span>↗</span></button><button class="tech-tab" data-tech="4" role="tab" aria-selected="false">Display Systems <span>↗</span></button></div><div class="tech-content" id="tech-panel" role="tabpanel" aria-live="polite"><div class="tech-copy" id="tech-copy"><div class="count" id="tech-count">01 / 05</div><h3 id="tech-title">Hear every voice.</h3><p id="tech-text">Shure MXA920 ceiling array and MXA710 linear array microphones enable discreet, high-quality audio pickup throughout collaboration spaces.</p><div class="chip-row" id="tech-chips"><span class="chip">Shure</span><span class="chip">MXA920</span><span class="chip">MXA710</span></div></div><div class="tech-photo" id="tech-photo"><img id="tech-photo-img" src="assets/boardroom.jpg" alt="OCSAN meeting space"><span id="tech-photo-label">AUDIO CAPTURE / OCSAN</span></div></div></div></div></section>
 <section class="gallery" id="gallery"><div class="wrap"><div class="heading-row reveal"><div><div class="eyebrow accent">04 / PROJECT GALLERY</div><h2 class="section-title">A closer look<br>at the spaces.</h2></div><p class="small" style="max-width:330px">Explore the environments where people and technology come together. Click any image to enlarge. These are project photos cropped from the supplied reference screenshot.</p></div><div class="gallery-grid reveal"><button class="gallery-item" data-image="0" aria-label="Open image: Conference room"><img src="assets/conference.jpg" alt="Conference room" loading="lazy"></button><button class="gallery-item" data-image="1" aria-label="Open image: OCSAN boardroom"><img src="assets/boardroom.jpg" alt="OCSAN boardroom" loading="lazy"></button><button class="gallery-item" data-image="2" aria-label="Open image: Meeting space"><img src="assets/meeting.jpg" alt="Meeting space" loading="lazy"></button><button class="gallery-item" data-image="3" aria-label="Open image: AV meeting detail"><img src="assets/room-detail.jpg" alt="AV meeting detail" loading="lazy"></button><button class="gallery-item" data-image="4" aria-label="Open image: Meeting room display"><img src="assets/room-wide.jpg" alt="Meeting room display" loading="lazy"></button></div></div></section>
@@ -133,6 +175,22 @@ const sections=[...document.querySelectorAll('[data-section]')];const sectionWat
 const io=window.IntersectionObserver?new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12}):null;document.querySelectorAll('.reveal').forEach(el=>io?io.observe(el):el.classList.add('visible'));
 let ticking=false;function updateProgress(){let d=document.documentElement;document.getElementById('progress').style.width=((d.scrollTop)/(d.scrollHeight-d.clientHeight)*100)+'%';ticking=false}addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateProgress);ticking=true}},{passive:true});updateProgress();
 const images=[['assets/conference.jpg','Conference room'],['assets/boardroom.jpg','OCSAN boardroom'],['assets/meeting.jpg','Meeting space'],['assets/room-detail.jpg','AV meeting detail'],['assets/room-wide.jpg','Meeting room display']];let current=0;const lb=document.getElementById('lightbox');const lbImg=document.getElementById('lb-img');let lastFocus=null;function renderImage(){lbImg.src=images[current][0];lbImg.alt=images[current][1];document.getElementById('lb-caption').textContent=(current+1)+' / '+images.length+' — '+images[current][1]}function openLightbox(i){lastFocus=document.activeElement;current=i;renderImage();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('lb-close').focus()}function closeLightbox(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';lastFocus?.focus()}document.querySelectorAll('[data-image]').forEach(b=>b.addEventListener('click',()=>openLightbox(+b.dataset.image)));document.getElementById('lb-close').onclick=closeLightbox;document.getElementById('lb-prev').onclick=()=>{current=(current+images.length-1)%images.length;renderImage()};document.getElementById('lb-next').onclick=()=>{current=(current+1)%images.length;renderImage()};lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox()});document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLightbox();else if(e.key==='ArrowRight')document.getElementById('lb-next').click();else if(e.key==='ArrowLeft')document.getElementById('lb-prev').click();else if(e.key==='Tab'){const buttons=[...lb.querySelectorAll('button')];const i=buttons.indexOf(document.activeElement);if(e.shiftKey&&i===0){e.preventDefault();buttons[buttons.length-1].focus()}else if(!e.shiftKey&&i===buttons.length-1){e.preventDefault();buttons[0].focus()}}});
+
+
+// Scroll-linked scene reveal; progressive enhancement, fully readable without JS.
+(()=>{
+const scene=document.querySelector('.story-strip');
+if(!scene||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+let queued=false;
+function syncScene(){
+ const r=scene.getBoundingClientRect(),height=innerHeight||720;
+ const p=Math.max(0,Math.min(1,(height-r.top)/(height*.85)));
+ scene.style.setProperty('--enter',p.toFixed(3));
+ queued=false;
+}
+function queue(){if(!queued){queued=true;requestAnimationFrame(syncScene)}}
+addEventListener('scroll',queue,{passive:true});addEventListener('resize',queue,{passive:true});syncScene();
+})();
 
 </script>
 </body></html>
